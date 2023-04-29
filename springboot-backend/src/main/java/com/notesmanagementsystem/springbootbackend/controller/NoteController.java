@@ -1,2 +1,21 @@
-package com.notesmanagementsystem.springbootbackend.controller;public class NoteController {
+package com.notesmanagementsystem.springbootbackend.controller;
+
+import com.notesmanagementsystem.springbootbackend.model.Note;
+import com.notesmanagementsystem.springbootbackend.repository.NoteRepository;
+import org.aspectj.weaver.ast.Not;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class NoteController {
+
+    @Autowired
+    private NoteRepository noteRepository;
+
+    @PostMapping("/note")
+    Note newNote(@RequestBody Note newNote){
+        return noteRepository.save(newNote);
+    }
 }
