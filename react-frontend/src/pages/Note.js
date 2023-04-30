@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 // import { Notes } from "../components/Notes"
 import AddNote from "../components/Addnote";
 
 export const Note = (props) => {
+
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    loadNotes();
+  }, []);
+
+  const loadNotes = async () => {
+    const result = await axios.get("http://localhost:8080/notes");
+    setNotes(result.data);
+  };
+
   return (
     <>
       <div className="container mt-5" data-aos="fade-up">
@@ -110,16 +123,17 @@ export const Note = (props) => {
                   })}
               </div> */}
                 <div className="row my-3">
+                  {notes.map((note, index) => (
                   <div className="col-md-4">
-                    <div className="card my-3 border border-1 border-secondary">
+                    <div className="card my-3 border border-2 border-secondary">
                       <div className="card-body ">
                         <h5 className="card-text text-start">
-                          <span class=" me-2 fw-bold align-middle">Title</span>-
+                          <span class=" me-2 fw-bold align-middle">{note.title}</span>-
                           <span class="badge badge-secondary fst-italic ms-2">
-                            Tag
+                          {note.tag}
                           </span>
                         </h5>
-                        <p className="card-text">Description</p>
+                        <p className="card-text">{note.description}</p>
                       </div>
                       <div class="card-footer d-flex justify-content-around ">
                         <button type="submit" className="btn btn-primary col-5  ">
@@ -133,121 +147,7 @@ export const Note = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4">
-                    <div className="card my-3 border border-1 border-secondary">
-                      <div className="card-body ">
-                        <h5 className="card-text text-start">
-                          <span class=" me-2 fw-bold align-middle">Title</span>-
-                          <span class="badge badge-secondary fst-italic ms-2">
-                            Tag
-                          </span>
-                        </h5>
-                        <p className="card-text">Description</p>
-                      </div>
-                      <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-primary col-5  ">
-                          {" "}
-                          <i className="fa-solid fa-pen-to-square mx-2"></i>Edit
-                        </button>
-                        <button type="submit" className="btn btn-danger col-5 ">
-                          {" "}
-                          <i className="fa-solid fa-trash mx-2"></i>Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card my-3 border border-1 border-secondary">
-                      <div className="card-body ">
-                        <h5 className="card-text text-start">
-                          <span class=" me-2 fw-bold align-middle">Title</span>-
-                          <span class="badge badge-secondary fst-italic ms-2">
-                            Tag
-                          </span>
-                        </h5>
-                        <p className="card-text">Description</p>
-                      </div>
-                      <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-primary col-5  ">
-                          {" "}
-                          <i className="fa-solid fa-pen-to-square mx-2"></i>Edit
-                        </button>
-                        <button type="submit" className="btn btn-danger col-5 ">
-                          {" "}
-                          <i className="fa-solid fa-trash mx-2"></i>Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card my-3 border border-1 border-secondary">
-                      <div className="card-body ">
-                        <h5 className="card-text text-start">
-                          <span class=" me-2 fw-bold align-middle">Title</span>-
-                          <span class="badge badge-secondary fst-italic ms-2">
-                            Tag
-                          </span>
-                        </h5>
-                        <p className="card-text">Description</p>
-                      </div>
-                      <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-primary col-5  ">
-                          {" "}
-                          <i className="fa-solid fa-pen-to-square mx-2"></i>Edit
-                        </button>
-                        <button type="submit" className="btn btn-danger col-5 ">
-                          {" "}
-                          <i className="fa-solid fa-trash mx-2"></i>Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card my-3 border border-1 border-secondary">
-                      <div className="card-body ">
-                        <h5 className="card-text text-start">
-                          <span class=" me-2 fw-bold align-middle">Title</span>-
-                          <span class="badge badge-secondary fst-italic ms-2">
-                            Tag
-                          </span>
-                        </h5>
-                        <p className="card-text">Description</p>
-                      </div>
-                      <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-primary col-5  ">
-                          {" "}
-                          <i className="fa-solid fa-pen-to-square mx-2"></i>Edit
-                        </button>
-                        <button type="submit" className="btn btn-danger col-5 ">
-                          {" "}
-                          <i className="fa-solid fa-trash mx-2"></i>Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card my-3 border border-2 border-secondary bg-gradient">
-                      <div className="card-body ">
-                        <h5 className="card-text text-start">
-                          <span class=" me-2 fw-bold align-middle">Title</span>-
-                          <span class="badge badge-secondary fst-italic ms-2">
-                            Tag
-                          </span>
-                        </h5>
-                        <p className="card-text">Description</p>
-                      </div>
-                      <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-primary col-5  ">
-                          {" "}
-                          <i className="fa-solid fa-pen-to-square mx-2"></i>Edit
-                        </button>
-                        <button type="submit" className="btn btn-danger col-5 ">
-                          {" "}
-                          <i className="fa-solid fa-trash mx-2"></i>Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+ ))}
                 </div>
               </div>
           </div>
