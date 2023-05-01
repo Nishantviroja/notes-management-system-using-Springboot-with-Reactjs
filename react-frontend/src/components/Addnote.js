@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const AddNote = (props) => {
 
     const [note, setNote] = useState({
         title : "",
         tag : "",
-        description : "" 
-        
-
+        description : ""
       });
-    
+
       const { title, tag, description } = note;
     
       const onInputChange = (e) => {
@@ -20,6 +19,7 @@ const AddNote = (props) => {
       const onSubmit = async (e) => {
         e.preventDefault();
         await axios.post("http://localhost:8080/note", note);
+
         props.history.push("/");
       };
     

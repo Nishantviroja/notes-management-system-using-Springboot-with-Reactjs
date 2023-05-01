@@ -24,4 +24,29 @@ public class NoteController {
     List<Note> getAllNotes() {
         return noteRepository.findAll();
     }
-}
+
+    @GetMapping("/user/{id}")
+    Note getNoteById(@PathVariable Long id) {
+        return noteRepository.findById(id)
+                .orElseThrow(() -> new NoteNotFoundException(id));
+    }
+
+    @PutMapping("/user/{id}")
+    Note updateNote(@RequestBody Note newNote, @PathVariable Long id) {
+        return noteRepository.findById(id)
+                .map(note -> {
+                    note.setTitle(newNote.getTitle());
+                    note.setTag(newNote.getTag());
+                    note.setDescription(newNote.getDescription());
+                    return noteRepository.save(note);
+                }).orElseThrow(() -> new NoteNotFoundException(id));
+    }
+
+    @DeleteMapping("/user/{id}")
+    String deleteNote(@PathVariable Long id){
+        if(!noteRepository.existsById(id)){
+            throw new NoteNotFoundException(id);
+        }
+        noteRepository.deleteById(id);
+        return  "Note with id "+id+" has been deleted success.";
+    }}
