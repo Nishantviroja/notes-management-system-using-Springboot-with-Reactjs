@@ -1,5 +1,6 @@
 package com.notesmanagementsystem.springbootbackend.controller;
 
+import com.notesmanagementsystem.springbootbackend.exception.NoteNotFoundException;
 import com.notesmanagementsystem.springbootbackend.model.Note;
 import com.notesmanagementsystem.springbootbackend.repository.NoteRepository;
 import org.aspectj.weaver.ast.Not;
