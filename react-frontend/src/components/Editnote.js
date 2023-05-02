@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const AddNote = (props) => {
+const EditNote = (props) => {
 
     let navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const AddNote = (props) => {
                     <div className='col-1 d-flex  h-75'></div>   
                     <div className='col-4 row d-flex justify-content-center align-items-center '>
                         <div className="container my-3 card border border-2 border-primary p-4">
-                                    <h2 className='text-center card-heading'>Add a Note</h2>
+                                    <h2 className='text-center card-heading'>Edit Note</h2>
                                 
                                 
                                     <form className="  justify-content-around" onSubmit={(e) => onSubmit(e)}>
@@ -54,7 +54,7 @@ const AddNote = (props) => {
                                         </div>
                                     
                                         <div className="mt-4 d-flex justify-content-center align-items-center">
-                                            <button disabled={note.title.length<5 || note.description.length<5}  type="submit" className="btn btn-primary w-75" >Add Note</button>
+                                            <button  type="submit" className="btn btn-primary w-75" >Edit Note</button>
                                             <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2  w-25" >Cancel</Link>
                                         </div>
                                         </form>
@@ -71,4 +71,4 @@ const AddNote = (props) => {
     )
 }
 
-export default AddNote;
+export default EditNote;

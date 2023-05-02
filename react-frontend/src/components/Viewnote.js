@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const AddNote = (props) => {
+const ViewNote = (props) => {
 
     let navigate = useNavigate();
 
@@ -71,4 +71,4 @@ const AddNote = (props) => {
     )
 }
 
-export default AddNote;
+export default ViewNote
