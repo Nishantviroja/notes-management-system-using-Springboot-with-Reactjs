@@ -3,7 +3,7 @@ package com.notesmanagementsystem.springbootbackend.controller;
 import com.notesmanagementsystem.springbootbackend.exception.NoteNotFoundException;
 import com.notesmanagementsystem.springbootbackend.model.Note;
 import com.notesmanagementsystem.springbootbackend.repository.NoteRepository;
-import org.aspectj.weaver.ast.Not;
+//import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,13 +26,13 @@ public class NoteController {
         return noteRepository.findAll();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/note/{id}")
     Note getNoteById(@PathVariable Long id) {
         return noteRepository.findById(id)
                 .orElseThrow(() -> new NoteNotFoundException(id));
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/note/{id}")
     Note updateNote(@RequestBody Note newNote, @PathVariable Long id) {
         return noteRepository.findById(id)
                 .map(note -> {
@@ -43,11 +43,12 @@ public class NoteController {
                 }).orElseThrow(() -> new NoteNotFoundException(id));
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/note/{id}")
     String deleteNote(@PathVariable Long id){
         if(!noteRepository.existsById(id)){
             throw new NoteNotFoundException(id);
         }
         noteRepository.deleteById(id);
         return  "Note with id "+id+" has been deleted success.";
-    }}
+    }
+}

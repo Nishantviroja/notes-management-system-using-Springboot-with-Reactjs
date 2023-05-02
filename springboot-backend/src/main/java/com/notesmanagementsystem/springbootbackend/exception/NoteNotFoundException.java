@@ -1,10 +1,10 @@
 package com.notesmanagementsystem.springbootbackend.exception;
-
 import jakarta.persistence.Id;
 
-public class NoteNotFoundException {
+
+public class NoteNotFoundException extends RuntimeException {
     public NoteNotFoundException(Long Id){
-        super("NoteNotFoundException error not solve" + Id);
+        super("Could not found the note with id " + Id);
     }
 
 }
