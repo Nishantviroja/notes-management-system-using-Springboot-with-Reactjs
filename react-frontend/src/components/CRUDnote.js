@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const AddNote = (props) => {
+const CRUDnote = (props) => {
 
 
       const [title, setTitle] = useState("")
@@ -61,4 +61,4 @@ const AddNote = (props) => {
     )
 }
 
-export default AddNote
+export default CRUDnote

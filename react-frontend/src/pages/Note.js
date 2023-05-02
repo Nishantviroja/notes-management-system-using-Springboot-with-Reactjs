@@ -9,7 +9,7 @@ export const Note = (props) => {
 
   useEffect(() => {
     loadNotes();
-  }, []);
+  }, [notes]);
 
   const loadNotes = async () => {
     const result = await axios.get("http://localhost:8080/notes");
@@ -23,7 +23,7 @@ export const Note = (props) => {
           <div className="col">
             <h2 className="text-primary">Your Notes..</h2>
               <div>
-                <AddNote />
+                <AddNote setNotes={setNotes} notes={notes} />
                 <button
                   type="button"
                   className="btn btn-primary d-none"
@@ -125,7 +125,7 @@ export const Note = (props) => {
                 <div className="row my-3">
                   {notes.map((note, index) => (
                   <div className="col-md-4">
-                    <div className="card my-3 border border-2 border-secondary">
+                    <div className="card my-3 border border-2 border-primary">
                       <div className="card-body ">
                         <h5 className="card-text text-start">
                           <span class=" me-2 fw-bold align-middle">{note.title}</span>-
@@ -136,13 +136,17 @@ export const Note = (props) => {
                         <p className="card-text">{note.description}</p>
                       </div>
                       <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-primary col-5  ">
+                        <button type="submit" className="btn btn-outline-primary col-6">
                           {" "}
-                          <i className="fa-solid fa-pen-to-square mx-2"></i>Edit
+                          Edit
                         </button>
-                        <button type="submit" className="btn btn-danger col-5 ">
+                        <button type="submit" className="btn btn-primary col-2  ">
                           {" "}
-                          <i className="fa-solid fa-trash mx-2"></i>Delete
+                          <i className="fa-solid fa-eye"></i>
+                        </button>
+                        <button type="submit" className="btn btn-danger col-2 ">
+                          {" "}
+                          <i className="fa-solid fa-trash"></i>
                         </button>
                       </div>
                     </div>
