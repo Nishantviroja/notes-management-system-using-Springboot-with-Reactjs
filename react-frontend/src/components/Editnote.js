@@ -39,25 +39,28 @@ const EditNote = (props) => {
                                 
                                 
                                     <form className="  justify-content-around" onSubmit={(e) => onSubmit(e)}>
-                                        
-                                        <div className="mt-2 mb-3  ">
-                                            <input type="text" className="form-control" placeholder="Enter Title" id="title" name="title" aria-describedby="emailHelp" value={title}  onChange={(e) => onInputChange(e)} minLength={5} required /> 
-                                        
-                                        </div>
-                                        <div className=" mb-3 ">
-                                            <input type="text" className="form-control" placeholder="Enter Tag" id="tag" name="tag" value={tag}  onChange={(e) => onInputChange(e)} minLength={5} required />
+                                       
+                                       <div className="mt-2 mb-3  ">
+                                           <label>Title</label>
+                                           <input type="text" className="form-control"  id="title" name="title" aria-describedby="emailHelp" value={title}  onChange={(e) => onInputChange(e)} minLength={5} required /> 
+                                       
+                                       </div>
+                                       <div className=" mb-3 ">
+                                       <label>Tag</label>
+                                           <input type="text" className="form-control"  id="tag" name="tag" value={tag}  onChange={(e) => onInputChange(e)} minLength={5} required />
 
-                                        </div>
-                                        
-                                        <div className="mb-3">
-                                            <textarea type="text" className="form-control" id="description" placeholder="Enter Description" name="description" value={description}  onChange={(e) => onInputChange(e)} minLength={5} required  rows="5"> </textarea>
-                                        </div>
-                                    
-                                        <div className="mt-4 d-flex justify-content-center align-items-center">
-                                            <button  type="submit" className="btn btn-primary w-75" >Edit Note</button>
+                                       </div>
+                                       
+                                       <div className="mb-3">
+                                       <label>Description</label>
+                                           <textarea type="text" className="form-control" id="description"  name="description" value={description}  onChange={(e) => onInputChange(e)} minLength={5} required  rows="5"> </textarea>
+                                       </div>
+                                   
+                                       <div className="mt-4 d-flex justify-content-center align-items-center">
+                                            <button  type="submit" className="btn btn-primary w-75" >Add Note</button>
                                             <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2  w-25" >Cancel</Link>
                                         </div>
-                                        </form>
+                                   </form>
                                     
                                     
                         </div>
