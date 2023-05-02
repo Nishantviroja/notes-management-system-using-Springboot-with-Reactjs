@@ -28,12 +28,12 @@ export const Note = (props) => {
             
              
 
-                <h2 className="text-primary">Your Notes..</h2>
+                <h2 className="text-primary">Your Notes...</h2>
              
                 <div className="row my-3">
-                <div className="col-md-4 d-flex justify-content-around ">
-                  <div className="card my-3 border border-2 border-primary p-5 w-100">
-                  <p className="d-flex justify-content-around m-1 card-text">Add New Note</p>
+                <div className="col-md-4 d-flex justify-content-around"  >
+                  <div className="card my-3 border border-1 border-primary p-5 w-100 bg-light" >
+                  <p className="d-flex justify-content-around m-1 fw-bold ">Add New Note</p>
                   <div className='d-flex justify-content-around '>
                     
                       <Link to="/addnotes" type="submit" className="btn btn-primary btn-rounded px-3">
