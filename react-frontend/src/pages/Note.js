@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {Link } from "react-router-dom";
 // import { Notes } from "../components/Notes"
 
 
@@ -23,17 +24,26 @@ export const Note = (props) => {
           <div className="col">
             
               <div>
-             
+
+            
              
 
                 <h2 className="text-primary">Your Notes..</h2>
-                {/* {notes.length===0 ? 'No notes to display' :  */}
-                {/* <div className="row my-3">
-                  {notes.map((note) => {
-                      return <NoteItem key={note._id} updateNote={updateNote} note={note} />
-                  })}
-              </div> */}
+             
                 <div className="row my-3">
+                <div className="col-md-4 d-flex justify-content-around ">
+                  <div className="card my-3 border border-2 border-primary p-5 w-100">
+                  <p className="d-flex justify-content-around m-1 card-text">Add New Note</p>
+                  <div className='d-flex justify-content-around '>
+                    
+                      <Link to="/addnotes" type="submit" className="btn btn-primary btn-rounded px-3">
+                
+                      <i className="fa-solid fa-plus"></i>
+                      </Link>
+                      </div>
+                       
+                  </div>
+                </div>
                   {notes.map((note, index) => (
                   <div className="col-md-4">
                     <div className="card my-3 border border-2 border-primary">
