@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import { Notes } from "../components/Notes"
-import AddNote from "../components/Addnote";
+
 
 export const Note = (props) => {
 
@@ -9,7 +9,7 @@ export const Note = (props) => {
 
   useEffect(() => {
     loadNotes();
-  }, [notes]);
+  }, []);
 
   const loadNotes = async () => {
     const result = await axios.get("http://localhost:8080/notes");
@@ -21,101 +21,12 @@ export const Note = (props) => {
       <div className="container mt-5" data-aos="fade-up">
         <div className="row">
           <div className="col">
-            <h2 className="text-primary">Your Notes..</h2>
+            
               <div>
-                <AddNote setNotes={setNotes} notes={notes} />
-                <button
-                  type="button"
-                  className="btn btn-primary d-none"
-                  data-bs-toggle="modal"
-                  data-bs-target="#editModal"
-                >
-                  Update Your Note
-                </button>
-                <div
-                  className="modal fade"
-                  id="editModal"
-                  tabIndex="-1"
-                  aria-labelledby="editModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5 className="modal-title" id="editModalLabel">
-                          Edit Note
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body">
-                        <form className="my-3">
-                          <div className="mb-3">
-                            <label htmlFor="etitle" className="form-label">
-                              Title
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="etitle"
-                              name="etitle"
-                              minLength={5}
-                              required
-                            />
-                          </div>
-                          <div className="mb-3">
-                            <label htmlFor="edescription" className="form-label">
-                              Description
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="edescription"
-                              name="edescription"
-                              minLength={5}
-                              required
-                            />
-                          </div>
-                          <div className="mb-3">
-                            <label htmlFor="etag" className="form-label">
-                              Tag
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="etag"
-                              name="etag"
-                              minLength={5}
-                              required
-                            />
-                          </div>
-                        </form>
-                      </div>
-                      {/* <div className="modal-footer">
-                              <button ref={refClose} type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                              <button disabled={note.etitle.length<5 || note.edescription.length<5} onClick={handleClick} type="button" className="btn btn-primary">Update Note</button>
-                          </div> */}
-                      <div className="modal-footer">
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button type="button" className="btn btn-primary">
-                          Update Note
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+             
+             
 
-                <h2 className="text-center">Your Notes</h2>
+                <h2 className="text-primary">Your Notes..</h2>
                 {/* {notes.length===0 ? 'No notes to display' :  */}
                 {/* <div className="row my-3">
                   {notes.map((note) => {
