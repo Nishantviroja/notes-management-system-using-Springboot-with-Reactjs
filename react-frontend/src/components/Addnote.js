@@ -26,31 +26,44 @@ const AddNote = (props) => {
     
     return (
         <div className="container my-3">
-            <h2 className='text-center'>Add a Note</h2>
-            <div className='row'>
-            <div className='col-2'></div>
-            
-            <form className="my-3 col-8" onSubmit={(e) => onSubmit(e)}>
-                <div className="row">
-                <div className=" mb-3  col-8">
-                    <input type="text" className="form-control" placeholder="Enter Title" id="title" name="title" aria-describedby="emailHelp" value={title}  onChange={(e) => onInputChange(e)} minLength={5} required /> 
-                
-                </div>
-                <div className=" mb-3  col-4">
-                    <input type="text" className="form-control" placeholder="Enter Tag" id="tag" name="tag" value={tag}  onChange={(e) => onInputChange(e)} minLength={5} required />
+          
+            <div className='d-flex flex-row justify-content-center align-items-center  p-3 '>
+                    <div className='col-6 '>
+                        <img className="h-100" src={require("../Images/svg4.svg").default} />
+                    </div>
+                     
+                    <div className='col-1 d-flex  h-75'></div>   
+                    <div className='col-4 row d-flex justify-content-center align-items-center '>
+                        <div className="container my-3 card border border-2 border-primary p-4">
+                                    <h2 className='text-center card-heading'>Add a Note</h2>
+                                
+                                
+                                    <form className="  justify-content-around" onSubmit={(e) => onSubmit(e)}>
+                                        
+                                        <div className="mt-2 mb-3  ">
+                                            <input type="text" className="form-control" placeholder="Enter Title" id="title" name="title" aria-describedby="emailHelp" value={title}  onChange={(e) => onInputChange(e)} minLength={5} required /> 
+                                        
+                                        </div>
+                                        <div className=" mb-3 ">
+                                            <input type="text" className="form-control" placeholder="Enter Tag" id="tag" name="tag" value={tag}  onChange={(e) => onInputChange(e)} minLength={5} required />
 
-                </div>
-                </div>
-                <div className="mb-3  col-12">
-                    <textarea type="text" className="form-control" id="description" placeholder="Enter Description" name="description" value={description}  onChange={(e) => onInputChange(e)} minLength={5} required  rows="3"> </textarea>
-                </div>
-               
-               
-                <button disabled={note.title.length<5 || note.description.length<5}  type="submit" className="btn btn-primary" ><i class="fa-solid fa-plus me-2"></i>Add Note</button>
-                <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2" >Cancel</Link>
-                {/* <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}><i class="fa-solid fa-plus me-2"></i>Add Note</button> */}
-            </form>
-            <div className='col-2'></div>
+                                        </div>
+                                        
+                                        <div className="mb-3">
+                                            <textarea type="text" className="form-control" id="description" placeholder="Enter Description" name="description" value={description}  onChange={(e) => onInputChange(e)} minLength={5} required  rows="5"> </textarea>
+                                        </div>
+                                    
+                                        <div className="mt-4 d-flex justify-content-center align-items-center">
+                                            <button disabled={note.title.length<5 || note.description.length<5}  type="submit" className="btn btn-primary w-75" >Add Note</button>
+                                            <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2  w-25" >Cancel</Link>
+                                        </div>
+                                        </form>
+                                    
+                                    
+                        </div>
+
+                    </div>   
+                    <div className='col-1 d-flex h-100'></div>   
             </div>
         </div>
 
