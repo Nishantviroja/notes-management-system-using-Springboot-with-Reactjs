@@ -39,25 +39,27 @@ const ViewNote = (props) => {
                                 
                                 
                                     <form className="  justify-content-around" onSubmit={(e) => onSubmit(e)}>
-                                        
+                                       
                                         <div className="mt-2 mb-3  ">
-                                            <input type="text" className="form-control" placeholder="Enter Title" id="title" name="title" aria-describedby="emailHelp" value={title}  onChange={(e) => onInputChange(e)} minLength={5} required /> 
+                                            <label>Title</label>
+                                            <input type="text" className="form-control"  id="title" name="title" aria-describedby="emailHelp" value={title}  onChange={(e) => onInputChange(e)} minLength={5} required /> 
                                         
                                         </div>
                                         <div className=" mb-3 ">
-                                            <input type="text" className="form-control" placeholder="Enter Tag" id="tag" name="tag" value={tag}  onChange={(e) => onInputChange(e)} minLength={5} required />
+                                        <label>Tag</label>
+                                            <input type="text" className="form-control"  id="tag" name="tag" value={tag}  onChange={(e) => onInputChange(e)} minLength={5} required />
 
                                         </div>
                                         
                                         <div className="mb-3">
-                                            <textarea type="text" className="form-control" id="description" placeholder="Enter Description" name="description" value={description}  onChange={(e) => onInputChange(e)} minLength={5} required  rows="5"> </textarea>
+                                        <label>Description</label>
+                                            <textarea type="text" className="form-control" id="description"  name="description" value={description}  onChange={(e) => onInputChange(e)} minLength={5} required  rows="5"> </textarea>
                                         </div>
                                     
                                         <div className="mt-4 d-flex justify-content-center align-items-center">
-                                            <button disabled={note.title.length<5 || note.description.length<5}  type="submit" className="btn btn-primary w-75" >Add Note</button>
-                                            <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2  w-25" >Cancel</Link>
+                                            <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2 w-100" >Back</Link>
                                         </div>
-                                        </form>
+                                    </form>
                                     
                                     
                         </div>

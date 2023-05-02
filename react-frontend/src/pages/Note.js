@@ -57,14 +57,14 @@ export const Note = (props) => {
                         <p className="card-text">{note.description}</p>
                       </div>
                       <div class="card-footer d-flex justify-content-around ">
-                        <button type="submit" className="btn btn-outline-primary col-6">
+                        <Link to={`/editnotes/${note.id}`} type="submit" className="btn btn-outline-primary col-6">
                           {" "}
                           Edit
-                        </button>
-                        <button type="submit" className="btn btn-primary col-2  ">
+                        </Link>
+                        <Link to={`/viewnotes/${note.id}`} type="submit" className="btn btn-primary col-2  ">
                           {" "}
                           <i className="fa-solid fa-eye"></i>
-                        </button>
+                        </Link>
                         <button type="submit" className="btn btn-danger col-2 ">
                           {" "}
                           <i className="fa-solid fa-trash"></i>
