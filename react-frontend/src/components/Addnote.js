@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const AddNote = (props) => {
 
@@ -22,7 +23,12 @@ const AddNote = (props) => {
         e.preventDefault();
         await axios.post("http://localhost:8080/note", note);
         navigate("/notes");
-        alert("Note Added Successfully");
+        
+        Swal.fire(
+            '',
+            'Note Added Successfully..',
+            'success'
+            );
       };
     
     return (

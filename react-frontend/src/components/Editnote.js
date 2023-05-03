@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 const EditNote = (props) => {
@@ -35,7 +36,12 @@ const EditNote = (props) => {
     e.preventDefault();
     await axios.put(`http://localhost:8080/note/${id}`, note);
     navigate("/notes");
-    alert("Note Updated Successfully");
+    
+    Swal.fire(
+      '',
+      'Note Updated Successfully..',
+      'success'
+      );
   };
 
  

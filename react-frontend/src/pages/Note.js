@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link } from "react-router-dom";
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 // import { Notes } from "../components/Notes"
 
 
@@ -21,9 +21,17 @@ export const Note = (props) => {
   };
 
   const deleteNote = async (id) => {
+    
     await axios.delete(`http://localhost:8080/note/${id}`);
+    Swal.fire(
+      '',
+      'Note Deleted Successfully..',
+      'success'
+      );
+      
     loadNotes();
-    swal("Hello world!");
+    
+    
   };
 
   return (
