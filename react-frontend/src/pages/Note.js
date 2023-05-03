@@ -45,7 +45,7 @@ export const Note = (props) => {
             
              
 
-                <h2 className="text-primary">Your Notes...</h2>
+                <h1 className="text-primary fw-bold">Your Notes</h1>
              
                 <div className="row my-3">
                 <div className="col-md-4 d-flex justify-content-around"  >

@@ -80,7 +80,7 @@ const EditNote = (props) => {
                                        </div>
                                    
                                        <div className="mt-4 d-flex justify-content-center align-items-center">
-                                            <button  type="submit" className="btn btn-primary w-75" >Add Note</button>
+                                            <button  type="submit" className="btn btn-primary w-75" >Save</button>
                                             <Link to="/notes"  type="submit" className="btn btn-outline-danger ms-2  w-25" >Cancel</Link>
                                         </div>
                                    </form>

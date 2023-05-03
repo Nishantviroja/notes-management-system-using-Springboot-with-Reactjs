@@ -8,7 +8,8 @@
 
   h2{
       text-align:center;
-      font-family: 'Audiowide', cursive;
+      font-family: source-code-pro;
+    font-weight: 900;
       color:black;
       padding-bottom: 5px;
   }

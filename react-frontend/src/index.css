@@ -21,10 +21,11 @@ i{
 }
 
 
- h3{
+ h2{
   text-align: center;
   margin-bottom: 0rem;
-  font-family: 'Audiowide', cursive;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
 }
 
 .btn{
