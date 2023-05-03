@@ -1,10 +1,13 @@
-import React, { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
 
 const EditNote = (props) => {
 
     let navigate = useNavigate();
+
+    const { id } = useParams();
 
     const [note, setNote] = useState({
         title : "",
@@ -18,11 +21,25 @@ const EditNote = (props) => {
         setNote({ ...note, [e.target.name]: e.target.value });
       };
     
-      const onSubmit = async (e) => {
-        e.preventDefault();
-        await axios.post("http://localhost:8080/note", note);
-        navigate("/notes");
-      };
+      
+  useEffect(() => {
+    loadNote();
+  }, []);
+
+  const loadNote = async () => {
+    const result = await axios.get(`http://localhost:8080/note/${id}`);
+    setNote(result.data);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put(`http://localhost:8080/note/${id}`, note);
+    navigate("/notes");
+    alert("Note Updated Successfully");
+  };
+
+ 
+
     
     return (
         <div className="container my-3">
