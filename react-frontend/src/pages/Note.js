@@ -61,7 +61,7 @@ export const Note = (props) => {
                        
                   </div>
                 </div>
-                  {notes.map((note, index) => (
+                  {notes.slice(0).reverse().map((note, index) => (
                   <div className="col-md-4">
                     <div className="card my-3 border border-2 border-primary">
                       <div className="card-body ">
