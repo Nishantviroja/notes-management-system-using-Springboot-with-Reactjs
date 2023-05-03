@@ -22,6 +22,7 @@ const AddNote = (props) => {
         e.preventDefault();
         await axios.post("http://localhost:8080/note", note);
         navigate("/notes");
+        alert("Note Added Successfully");
       };
     
     return (
