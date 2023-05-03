@@ -17,6 +17,12 @@ export const Note = (props) => {
     setNotes(result.data);
   };
 
+  const deleteNote = async (id) => {
+    await axios.delete(`http://localhost:8080/note/${id}`);
+    loadNotes();
+    alert("Note Deleted Successfully");
+  };
+
   return (
     <>
       <div className="container mt-5" data-aos="fade-up">
@@ -65,7 +71,7 @@ export const Note = (props) => {
                           {" "}
                           <i className="fa-solid fa-eye"></i>
                         </Link>
-                        <button type="submit" className="btn btn-danger col-2 ">
+                        <button type="submit" className="btn btn-danger col-2 "  onClick={() => deleteNote(note.id)}>
                           {" "}
                           <i className="fa-solid fa-trash"></i>
                         </button>
