@@ -8,7 +8,7 @@ import Main4 from '../Images/main4.png';
 export const Home = (props) => {
   return (
     <>
-    <div className='d-flex flex-row justify-content-center align-items-center '>
+    <div className='d-flex flex-row justify-content-center align-items-center ' id="hello">
                     <div className='w-100'>
                         <img className="w-100 " src={Main} />
                     </div>
@@ -26,7 +26,7 @@ export const Home = (props) => {
                     </div>
                     
             </div>
-            <div className='d-flex flex-row justify-content-center align-items-center '>
+            <div className='d-flex flex-row justify-content-center align-items-center ' id="hello4">
                     <div className='w-100'>
                         <img className="w-100 " src={Main4} />
                     </div>
